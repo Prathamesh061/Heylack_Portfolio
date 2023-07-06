@@ -6,11 +6,11 @@
 
 /* Custom Properties */
 :root {
-    --ff-primary: 'Source Sans Pro', sans-serif;
-    --ff-secondary: 'Source Code Pro', monospace;
+    --ff-primary: 'Lora', serif;
+    --ff-secondary: 'Roboto Slab', serif;
 
-    --fw-reg: 300;
-    --fw-bold: 900;
+    --fw-reg: 400;
+    --fw-bold: 700;
 
     --clr-light: #fff;
     --clr-dark: #303030;
