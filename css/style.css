@@ -26,7 +26,7 @@
         0.125em 0.125em 0.25em rgba(0, 0, 0, .15);
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
     :root {
         --fs-h1: 4.5rem;
         --fs-h2: 3.75rem;
@@ -137,8 +137,94 @@ h3 {
 }
 
 /* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    position: relative;
+}
 
-nav {}
+.logo {
+    max-width: 100px;
+}
+
+.nav {
+    position: fixed;
+    background: var(--clr-dark);
+    color: var(--clr-light);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transform: translateX(100%);
+    transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
+}
+
+.nav__list {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__link {
+    color: inherit;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h2);
+    text-decoration: none;
+}
+
+.nav__link:hover {
+    color: var(--clr-sunset-orange);
+}
+
+.nav-toggle {
+    padding: .5em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    z-index: 1000;
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    background: var(--clr-dark);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+}
+
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.hamburger::before {
+    top: 6px;
+}
+
+.hamburger::after {
+    bottom: 6px;
+}
 
 /* Intro Section */
 
@@ -163,7 +249,7 @@ nav {}
         grid-template-areas:
             "img title"
             "img subtitle";
-        grid-template-columns: min-content max-content;
+        grid-template-columns: min-content 1fr;
     }
 
     .intro__img {
@@ -186,6 +272,12 @@ nav {}
 
     .section__title--intro {
         grid-area: "title";
+    }
+}
+
+@media (min-width: 1000px) {
+    .intro {
+        grid-template-columns: min-content max-content;
     }
 }
 
