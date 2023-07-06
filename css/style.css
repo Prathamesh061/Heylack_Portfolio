@@ -36,8 +36,12 @@
 }
 
 /* General styles */
+html {
+    scroll-behavior: smooth;
+}
 
 body {
+    min-height: 100vh;
     background: var(--clr-light);
     color: var(--clr-dark);
     margin: 0;
@@ -138,6 +142,9 @@ h3 {
 
 /* Header */
 .header {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     justify-content: space-between;
     padding: 1em;
@@ -194,6 +201,30 @@ h3 {
     z-index: 1000;
 }
 
+.nav-open .nav {
+    transform: translateX(0);
+}
+
+.nav-open .nav-toggle {
+    position: fixed;
+}
+
+.nav-open .hamburger {
+    transform: rotate(.625turn);
+}
+
+.nav-open .nav-toggle:focus {
+    outline: none;
+}
+
+.nav-open .hamburger::before {
+    transform: rotate(90deg) translateX(-6px);
+}
+
+.nav-open .hamburger::after {
+    opacity: 0;
+}
+
 .hamburger {
     display: block;
     position: relative;
@@ -202,7 +233,7 @@ h3 {
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-    background: var(--clr-dark);
+    background: var(--clr-sunset-orange);
     width: 2em;
     height: 3px;
     border-radius: 1em;
@@ -381,31 +412,45 @@ h3 {
     text-align: center;
 }
 
+
 .portfolio {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: .4rem;
+    grid-gap: 0.4rem;
 }
 
-.portfolio__item {
-    background: var(--clr-sunset-orange);
+.card {
+    background-color: var(--clr-light);
+    color: var(--clr-dark);
+    background-size: cover;
+    background-blend-mode: overlay;
     overflow: hidden;
 }
 
-.portfolio__img {
+
+.card__content {
+    padding: 1.5em;
+}
+
+.card__img {
+    margin-left: auto;
+    margin-right: auto;
     transition:
         transform 750ms ease-in-out,
         opacity 250ms linear;
 }
 
-.portfolio__img:hover,
-.portfolio__item:focus .portfolio__img {
+
+.card__img:hover,
+.card__item:focus .card__img {
     transform: scale(1.2);
     opacity: .75;
 }
 
 /* Footer */
 .footer {
+    position: sticky;
+    top: 120%;
     background: #111;
     color: var(--clr-sunset-orange);
     text-align: center;
@@ -445,4 +490,19 @@ h3 {
 
 .social-list__link {
     padding: .5em;
+}
+
+
+/* Individual portfolio item styles */
+
+.portfolio-item-individual {
+    padding: 0 2em 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.portfolio-item-individual p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
