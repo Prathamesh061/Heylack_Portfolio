@@ -508,6 +508,10 @@ h3 {
     opacity: .75;
 }
 
+.card__img-container {
+    overflow: hidden;
+}
+
 /* Footer */
 .footer {
     position: sticky;
