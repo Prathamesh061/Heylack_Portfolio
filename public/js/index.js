@@ -1,6 +1,5 @@
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelectorAll(".nav__link");
-const navItems = document.querySelectorAll(".nav__item");
 
 navToggle.addEventListener("click", () => {
   document.body.classList.toggle("nav-open");
@@ -12,34 +11,34 @@ navLinks.forEach((link) => {
   });
 });
 
-navItems.forEach((item) => {
+navLinks.forEach((item) => {
   item.addEventListener("click", () => {
-    navItems.forEach((item) => {
-      item.classList.remove("selected");
+    navLinks.forEach((item) => {
+      item.classList.remove("active");
     });
 
-    item.classList.add("selected");
+    item.classList.add("active");
   });
 });
 
-document.addEventListener("scroll", function () {
-  var navbarItems = document
-    .getElementsByClassName("navbar")[0]
-    .getElementsByTagName("a");
-  var scrollPosition = document.documentElement.scrollTop;
+document.addEventListener("scroll", () => {
+  const navLinks = document.querySelectorAll(".nav__link");
+  let scrollPosition = document.documentElement.scrollTop;
 
-  for (var i = 0; i < navbarItems.length; i++) {
-    var currentLink = navbarItems[i];
-    var sectionId = currentLink.getAttribute("href");
-    var section = document.querySelector(sectionId);
+  const headerHeight =
+    document.getElementsByClassName("header-container")[0].offsetHeight;
+
+  navLinks.forEach((item) => {
+    const sectionId = item.getAttribute("href");
+    const section = document.querySelector(sectionId);
 
     if (
-      section.offsetTop <= scrollPosition &&
-      section.offsetTop + section.offsetHeight > scrollPosition
+      section.offsetTop - headerHeight <= scrollPosition &&
+      section.offsetTop + section.offsetHeight - headerHeight > scrollPosition
     ) {
-      currentLink.classList.add("active");
+      item.classList.add("active");
     } else {
-      currentLink.classList.remove("active");
+      item.classList.remove("active");
     }
-  }
+  });
 });
