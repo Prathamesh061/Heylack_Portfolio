@@ -40,5 +40,21 @@ document.addEventListener("scroll", () => {
     } else {
       item.classList.remove("active");
     }
+
+    const scrollToTopBtn = document.querySelector(".scroll-to-top");
+    if (scrollPosition > 300) {
+      scrollToTopBtn.style.display = "block";
+      scrollToTopBtn.addEventListener("click", scrollToTop);
+    } else {
+      scrollToTopBtn.style.display = "none";
+      scrollToTopBtn.removeEventListener("click", scrollToTop);
+    }
   });
 });
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}

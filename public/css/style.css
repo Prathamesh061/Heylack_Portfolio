@@ -553,6 +553,20 @@ h3 {
     padding: .5em;
 }
 
+.scroll-to-top {
+    display: none;
+    font-size: var(--fs-h3);
+    border: none;
+    background: transparent;
+    outline: 3px solid var(--clr-sunset-orange);
+    outline-offset: 3px;
+    color: var(--clr-sunset-orange);
+    border-radius: 25%;
+    position: fixed;
+    right: 2em;
+    bottom: 2em;
+    cursor: pointer;
+}
 
 /* Individual portfolio item styles */
 
